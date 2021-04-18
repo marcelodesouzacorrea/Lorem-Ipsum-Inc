@@ -10,4 +10,6 @@
      if($stmt = mysqli_prepare($link, $sql)){
         // Vincular variáveis ​​à instrução preparada como parâmetros
         mysqli_stmt_bind_param($stmt, "i", $param_id);
+        // configura o parametro
+        $param_id = trim($_GET["id"]);
 ?>
