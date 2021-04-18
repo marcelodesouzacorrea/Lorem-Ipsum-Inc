@@ -88,5 +88,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "Ups! Algo deu errado. Por favor, tente novamente mais tarde.";
             }
         }
+          // Fechar declaração
+          mysqli_stmt_close($stmt);
+        }
             
 ?>
