@@ -78,5 +78,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_valor = $valor;
             $param_riscos = $riscos;
             $param_participantes = $participantes;
+
+            // Tente executar a declaração preparada
+            if(mysqli_stmt_execute($stmt)){
+                // Registros criados com sucesso. Redirecionar para a página de destino
+                header("location: index.php");
+                exit();
+            } else{
+                echo "Ups! Algo deu errado. Por favor, tente novamente mais tarde.";
+            }
+        }
             
 ?>
