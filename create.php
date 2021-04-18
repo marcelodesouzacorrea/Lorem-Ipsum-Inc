@@ -62,4 +62,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $participantes = $input_participantes;
     }
+    // Verifique os erros de entrada antes de inserir no banco de dados
+    if(empty($nome_err) && empty($inicio_err) && empty($fim_err) && empty($valor_err) && empty($riscos_err) && empty($participantes_err)){
+        // Prepare uma declaração de inserção
+        $sql = "INSERT INTO employees (nome, inicio, fim, valor, riscos, participantes) VALUES (?, ?, ?, ?, ?, ?)";
+         
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Vincular variáveis ​​à instrução preparada como parâmetros
+            mysqli_stmt_bind_param($stmt, "sss", $param_nome, $param_inicio, $param_fim, $param_valor, $param_riscos, $param_participantes);
 ?>
