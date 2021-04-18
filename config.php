@@ -5,4 +5,7 @@
     define('DB_PASSWORD', '');
     define('DB_NAME', 'projeto');
 
+    // Tentativa de conexão ao banco de dados MySQL
+    $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
 ?>
