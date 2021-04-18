@@ -47,4 +47,62 @@
     exit();
 }
 ?>
-?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                <h1 class="mt-5 mb-3">Ver registro</h1>
+                <div class="form-group">
+                        <label>Nome</label>
+                        <p><b><?php echo $row["nome"]; ?></b></p>
+                </div>
+
+                <div class="form-group">
+                        <label>Inicio</label>
+                        <p><b><?php echo $row["inicio"]; ?></b></p>
+                </div>
+
+                <div class="form-group">
+                        <label>Fim</label>
+                        <p><b><?php echo $row["fim"]; ?></b></p>
+                </div>
+
+                <div class="form-group">
+                        <label>Valor</label>
+                        <p><b><?php echo $row["valor"]; ?></b></p>
+                </div>
+
+                <div class="form-group">
+                        <label>Riscos</label>
+                        <p><b><?php echo $row["riscos"]; ?></b></p>
+                </div>
+
+                <div class="form-group">
+                        <label>Participantes</label>
+                        <p><b><?php echo $row["participantes"]; ?></b></p>
+                </div>
+
+                <p><a href="index.php" class="btn btn-primary">Voltar</a></p>
+                </div>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>
