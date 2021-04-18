@@ -91,5 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           // Fechar declaração
           mysqli_stmt_close($stmt);
         }
+         // Fechar conexão
+    mysqli_close($link);
             
 ?>
