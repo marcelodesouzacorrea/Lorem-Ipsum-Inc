@@ -44,7 +44,59 @@
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){
                     echo '<table class="table table-bordered table-striped">';
-            ?>    
+
+                    echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>#</th>";
+                                        echo "<th>Nome</th>";
+                                        echo "<th>Inicio</th>";
+                                        echo "<th>Fim</th>";
+                                        echo "<th>Valor</th>";
+                                        echo "<th>Riscos</th>";
+                                        echo "<th>Participantes</th>";
+                                        echo "<th>Action</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";  
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['nome'] . "</td>";
+                                        echo "<td>" . $row['inicio'] . "</td>";
+                                        echo "<td>" . $row['fim'] . "</td>";
+                                        echo "<td>" . $row['valor'] . "</td>";
+                                        echo "<td>" . $row['riscos'] . "</td>";
+                                        echo "<td>" . $row['participantes'] . "</td>";
+                                        echo "<td>";
+                                        echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                        echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+
+                                        echo "</td>";
+                                        echo "</tr>";
+                                    }
+
+                                    echo "</tbody>";                            
+                                    echo "</table>";
+                                    // Free result set
+                                    mysqli_free_result($result);
+                                } else{
+                                    echo '<div class="alert alert-danger"><em>Nenhum registro foi encontrado..</em></div>';
+                                }
+                            } else{
+                                echo "Oops! Something went wrong. Please try again later.";
+                            }
+         
+                            // Close connection
+                            mysqli_close($link);
+                            ?>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </body>
+        </html>
+            ?>                                  
             
             </div>
             </div>
